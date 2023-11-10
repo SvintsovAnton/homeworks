@@ -1,5 +1,6 @@
 package de.ait.homework39;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Student {
@@ -47,7 +48,7 @@ public class Student {
                 ']' + "\n";
     }
 
-     @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

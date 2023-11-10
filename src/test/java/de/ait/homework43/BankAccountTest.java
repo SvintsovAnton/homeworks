@@ -1,5 +1,6 @@
 package de.ait.homework43;
 
+import nl.altindag.log.LogCaptor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,15 @@ class BankAccountTest {
 
     @Test
     void deposit() {
+       LogCaptor logCaptor = LogCaptor.forClass(BankAccount.class);
+       logCaptor.setLogLevelToInfo();
         antonAccount.deposit(1000.0);
         Assertions.assertEquals(6000.0,antonAccount.getBalance());
+
+        String expectedInfoMessage = "Anton topped up his account with 1000.0 euros";
+        Assertions.assertTrue(logCaptor.getInfoLogs().contains(expectedInfoMessage));
+
+
     }
 
     @Test

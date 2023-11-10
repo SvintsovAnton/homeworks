@@ -29,7 +29,10 @@ public class Superhero {
     }
 
     public void setPower(int power) {
-        this.power = power;
+
+        if(power>=1 && power<=10){this.power = power;}else {
+            System.out.println("Wrong power "+ power);
+        }
     }
 
     public int getAge() {

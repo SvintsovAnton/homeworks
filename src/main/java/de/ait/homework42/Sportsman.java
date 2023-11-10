@@ -1,10 +1,18 @@
 package de.ait.homework42;
 
 
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Sportsman {
+
+
+    private  static final Logger LOGGER = LoggerFactory.getLogger(Sportsman.class);
     private String name;
     private int age;
     private String sport;
+
     private int records;
 
     public Sportsman(String name, int age, String sport, int records) {

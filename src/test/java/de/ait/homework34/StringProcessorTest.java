@@ -1,6 +1,8 @@
 package de.ait.homework34;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +20,7 @@ public class StringProcessorTest {
     public void testConcatenateLiteralMeaning (){
         assertEquals("homework",stringProcessor.concatenate("home","work"));
     }
+
     @Test
     public void testConcatenateDigitalLiteralMeaning (){
         assertEquals("COVID-19",stringProcessor.concatenate("COVID","-19"));

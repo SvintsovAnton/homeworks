@@ -4,17 +4,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Bar {
-    Map<String,Drink> listOfDrink = new HashMap<>();
+     private Map<String,Drink> listOfDrink = new HashMap<>();
+
+    public Map<String, Drink> getListOfDrink() {
+        return listOfDrink;
+    }
+
+    public void setListOfDrink(Map<String, Drink> listOfDrink) {
+        this.listOfDrink = listOfDrink;
+    }
 
     public boolean addDrink(String id, Drink drink){
-        if(listOfDrink.containsKey(id)){
+        if(getListOfDrink().containsKey(id)){
             System.out.println("Sorry, a drink with this ID already exists");
             return false;
-        }else {listOfDrink.put(id,drink);
+        }else {getListOfDrink().put(id,drink);
         return true;}
     }
 
     public Drink getDrink(String id){
-        return listOfDrink.get(id);
+        return getListOfDrink().get(id);
     }
 }

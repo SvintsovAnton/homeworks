@@ -1,21 +1,33 @@
 package de.ait.homework41;
 
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class Main {
+   private static List<String> countriesList = new ArrayList<String>();
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
         //a. Создайте объект ArrayList<String> с названием countriesList.
 
-        List countriesList = new ArrayList<String>();
+
+
+
 
         //b. Добавьте в countriesList следующие страны: США, Великобритания, Франция, Чехия, Германия ,Франция
-
-        countriesList.add("США");
+String usa = "USA";
+        countriesList.add(usa);
+        LOGGER.info("Добавлена новая страна {}",usa);
         countriesList.add("Великобритания");
         countriesList.add("Франция");
         countriesList.add("Чехия");

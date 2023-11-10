@@ -19,8 +19,8 @@ class BarTest {
     @Test
     void addDrinkPositive() {
         Drink cola = new Drink("Cola","alcohol-free",0.33);
-        Assertions.assertEquals(true,bar.addDrink("222",cola));
-        Assertions.assertEquals(true,bar.listOfDrink.containsValue(cola));
+        Assertions.assertTrue(bar.addDrink("222",cola));
+        Assertions.assertTrue(bar.getListOfDrink().containsValue(cola));
     }
 
     @Test
@@ -28,8 +28,8 @@ class BarTest {
         Drink cola = new Drink("Cola","alcohol-free",0.33);
         Drink fanta = new Drink("Fanta","alcohol-free",0.5);
         bar.addDrink("111",fanta);
-        Assertions.assertEquals(false,bar.addDrink("111",fanta));
-        Assertions.assertEquals(1,bar.listOfDrink.size());
+        Assertions.assertFalse(bar.addDrink("111",fanta));
+        Assertions.assertEquals(1,bar.getListOfDrink().size());
     }
 
     @Test
@@ -43,6 +43,6 @@ class BarTest {
     void getDrinkNegative() {
         Drink fanta = new Drink("Fanta","alcohol-free",0.5);
         bar.addDrink("222",fanta);
-        Assertions.assertEquals(null,bar.getDrink("111"));
+        Assertions.assertNull(bar.getDrink("111"));
     }
 }
