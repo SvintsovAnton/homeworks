@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Account {
-    private static final Logger LOGGER = LoggerFactory.getLogger(BankAccount.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Account.class);
     public static void main(String[] args) {
 
 inputAccount();
