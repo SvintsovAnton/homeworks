@@ -36,6 +36,8 @@ public class ReaderFail {
         writeInFile(sourceFile, "Katze Hund \nWolf");
 
         readAndWriteInFileContary(sourceFile, destinationFile);
+
+
     }
 
     public static void writeInFile(File file, String write) {
@@ -85,23 +87,17 @@ public class ReaderFail {
                     }
                     lineInSource = bufferedReaderInSource.readLine();
 
-
                     try (FileWriter fileWriter = new FileWriter(destination, true);) {
                         fileWriter.write("\n");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
-
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-
         }
     }
-
-
 }
