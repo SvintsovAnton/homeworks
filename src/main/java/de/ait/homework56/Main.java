@@ -19,7 +19,7 @@ public class Main {
 
 //eventScheduler.EventDate("05.12.2023");
 
-        eventScheduler.intersectionEvents(meeting, work);
+        eventScheduler.intersectionEvents(brekfast, work);
 
         eventScheduler.intersectionEvents();
 

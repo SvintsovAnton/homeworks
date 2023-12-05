@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class EventScheduler {
@@ -60,6 +63,23 @@ public class EventScheduler {
 
     public boolean intersectionEvents() {
         System.out.println("the following event matches were found: ");
+        Collections.sort(listOfEvent, Comparator.comparing(Event::getStartDateTime));
+
+        for(int i =0;i< listOfEvent.size()-1;i++)
+        {
+            Event vorEvent = listOfEvent.get(i);
+            Event nextEvent = listOfEvent.get(i+1);
+            if
+            (vorEvent.getEndDateTime().isAfter((nextEvent.getStartDateTime()))){
+                System.out.println(vorEvent.toString()+ " and "+nextEvent.toString());
+                return true;
+            }
+        }
+        System.out.println("don´t intersection");
+        return false;
+
+        /* Решение не сработало -->
+
         String forReturn = "";
         boolean intersection = false;
         for (Event event1 : listOfEvent) {
@@ -73,7 +93,7 @@ public class EventScheduler {
                 boolean eventIndex = (!(listOfEvent.indexOf(event1) == listOfEvent.indexOf(event2)));
 
                 cycle:
-                if (firststartedEarlier && event1.getEndDateTime().isAfter(event2.getStartDateTime())) {
+                 if (firststartedEarlier && event1.getEndDateTime().isAfter(event2.getStartDateTime())) {
                     intersection = true;
                     break cycle;
                 } else if (secondStartedEarlier && event2.getEndDateTime().isAfter(event1.getStartDateTime())) {
@@ -86,7 +106,17 @@ public class EventScheduler {
                     intersection = false;
                 }
 
+                secondCircle:
                 if (intersection && eventIndex) {
+                    HashMap<Integer,Integer> furIndex = new HashMap<Integer, Integer>();
+                    furIndex.put(listOfEvent.indexOf(event2),listOfEvent.indexOf(event1));
+
+                    if (furIndex.isEmpty()){
+
+                    if (furIndex.get(event1).equals(listOfEvent.indexOf(event2)))
+                    {
+                    break secondCircle;}}
+
                     forReturn = forReturn + event1.toString() + event2.toString() + "\n";
                 }
             }
@@ -98,10 +128,35 @@ public class EventScheduler {
             System.out.println(forReturn);
             return true;
         }
+
+         */
     }
 
 
     public boolean intersectionEvents(Event event1, Event event2) {
+        Event vorEvent = event1;
+        Event nextEvent = event2;
+        if (event1.getStartDateTime().isBefore(event2.getStartDateTime())) {
+            vorEvent = event2;
+            nextEvent = event1;
+        }
+
+
+        if (vorEvent.getEndDateTime().isAfter((nextEvent.getStartDateTime()))) {
+            System.out.println("Events don´t intersection");
+            return true;
+        }
+
+        System.out.println("don´t intersection");
+        return false;
+
+    }
+
+
+
+        /* Решение не сработало-->
+
+
         boolean intersection = false;
         boolean firststartedEarlier = (event1.getStartDateTime().isBefore(event2.getStartDateTime()));
         boolean secondStartedEarlier = (event1.getStartDateTime().isAfter(event2.getStartDateTime()));
@@ -130,10 +185,10 @@ public class EventScheduler {
         } else {
             System.out.println("Events don´t intersection");
             return false;
-        }
+        } */
     }
 
 
-}
+
 
 
