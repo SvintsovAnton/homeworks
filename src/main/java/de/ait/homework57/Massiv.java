@@ -3,6 +3,7 @@ package de.ait.homework57;
 public class Massiv {
     public static void main(String[] args) {
         //Создание и заполнение массива
+
         int[][] myArray = new int[5][5];
 
         try {
@@ -14,10 +15,11 @@ public class Massiv {
                 }
             }
         } catch (ArrayIndexOutOfBoundsException exception) {
-            System.out.println("У вас ошибка, связанная с индексами массива провертье код или условия");
+            System.out.println("У вас ошибка, связанная с индексами массива проверьте код или условия");
         }
 
         //Поиск максимального элемента:
+
         int maxInArray = 0;
         try {
             for (int i = 0; i < myArray.length; i++) {
@@ -30,10 +32,11 @@ public class Massiv {
 
             System.out.println("Максимальное числов в массиве: " + maxInArray);
         } catch (ArrayIndexOutOfBoundsException exception) {
-            System.out.println("У вас ошибка, связанная с индексами массива провертье код или условия");
+            System.out.println("У вас ошибка, связанная с индексами массива проверьте код или условия");
         }
 
         //Расчёт среднего значения:
+
         int sum = 0;
         int count = 0;
         int average = 0;
@@ -53,11 +56,10 @@ public class Massiv {
             System.out.println("У вас ошибка, связанная с индексами массива провертье код или условия");
         }
 
-
         //Поиск чисел по условию
 
         try {
-            System.out.print("Числа массива, которые больше срднего значения: ");
+            System.out.print("Числа массива, которые больше среднего значения: ");
             for (int i = 0; i < myArray.length; i++) {
                 for (int j = 0; j < myArray[i].length; j++) {
                     if (myArray[i][j] > average) {
@@ -66,11 +68,10 @@ public class Massiv {
                 }
             }
         } catch (ArithmeticException exception) {
-            System.out.println("У вас ошибка, провертье код или условия");
+            System.out.println("У вас ошибка, проверьте код или условия");
         } catch (ArrayIndexOutOfBoundsException exception) {
-            System.out.println("У вас ошибка, связанная с индексами массива провертье код или условия");
+            System.out.println("У вас ошибка, связанная с индексами массива проверьте код или условия");
         }
-
     }
 
 }
