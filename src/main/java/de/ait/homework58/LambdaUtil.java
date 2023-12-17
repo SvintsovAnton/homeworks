@@ -1,4 +1,4 @@
-package de.ait.lambda;
+package de.ait.homework58;
 
 import java.util.ArrayList;
 import java.util.Arrays;
